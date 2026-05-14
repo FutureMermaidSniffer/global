@@ -357,6 +357,37 @@
     .trust-bar { flex-direction:column; align-items:flex-start; gap:16px; }
     .hero-stats { flex-wrap:wrap; gap:24px; }
     .footer-grid { grid-template-columns:1fr; }
+
+    /* Horizontal scroll for grids on mobile */
+    .badges-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 16px;
+      padding-bottom: 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .badges-grid::-webkit-scrollbar { height: 4px; }
+    .badge-card {
+      flex: 0 0 78vw;
+      scroll-snap-align: start;
+    }
+
+    .platforms-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 16px;
+      padding-bottom: 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .platforms-grid::-webkit-scrollbar { height: 4px; }
+    .platform-card {
+      flex: 0 0 72vw;
+      scroll-snap-align: start;
+    }
   }
 
   /* Animated number counter */
@@ -765,11 +796,11 @@
     </div>
     <div class="hero-stats">
       <div>
-        <span class="stat-num">140+</span>
+        <span class="stat-num">14+</span>
         <span class="stat-label">Countries Supported</span>
       </div>
       <div>
-        <span class="stat-num">£2.8B+</span>
+        <span class="stat-num">£2.8M+</span>
         <span class="stat-label">Volume Processed</span>
       </div>
       <div>
@@ -783,7 +814,7 @@
     </div>
   </div>
   <div class="hero-media">
-    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Happy Europeans smiling together"/>
+    <img src="business-meeting-office.webp" alt="Business meeting in office"/>
   </div>
 </section>
 
@@ -841,7 +872,7 @@
 <section class="pricing-section" id="pricing">
   <div class="section-label">Transparent Pricing</div>
   <h2 class="section-title">Clear, Tiered Exchange Rates</h2>
-  <p class="section-sub">No hidden fees. No markup surprises. Our tiered structure rewards higher volumes with better rates. All rates are inclusive of compliance and certification services.</p>
+  <!-- <p class="section-sub">No hidden fees. No markup surprises. Our tiered structure rewards higher volumes with better rates. All rates are inclusive of compliance and certification services.</p> -->
   <div class="pricing-grid">
     <div class="pricing-card">
       <div class="pricing-range">£5,000 – £10,000</div>
@@ -983,7 +1014,7 @@
       </div>
     </div>
     <div class="compliance-image-box">
-      <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80" alt="Compliance officer reviewing documents"/>
+      <img src="side-view-man-working-from-home.webp" alt="Man working from home"/>
       <div class="compliance-image-caption">Document verification and onboarding workflow monitored in real time by our compliance team.</div>
     </div>
   </div>
@@ -992,23 +1023,24 @@
 <!-- PARTNERS -->
 <section class="partners-section">
   <div class="section-label">Trusted Partners &amp; Integrations</div>
-  <h3 style="font-size:1.1rem; color:rgba(255,255,255,0.7); font-weight:500;">Working with leading financial institutions and platforms worldwide</h3>
+  <h3 style="font-size:1.1rem; color:rgba(255,255,255,0.7); font-weight:500;">Companies we are working with.</h3>
   <div class="partners-scroll">
-    <div class="partner-tag">Amplitude.vip</div>
+    <div class="partner-tag">Amplitude VIP</div>
     <div class="partner-tag">NovaPay Financial</div>
     <div class="partner-tag">ClearBridge Capital</div>
     <div class="partner-tag">Sterling Remit Group</div>
     <div class="partner-tag">Vantage FX Partners</div>
     <div class="partner-tag">Meridian Trust Co.</div>
-    <div class="partner-tag">AtlasWire Payments</div>
-    <div class="partner-tag">CrownVault Bank</div>
-    <div class="partner-tag">Horizon Digital Finance</div>
-    <div class="partner-tag">PinnacleX Exchange</div>
-    <div class="partner-tag">SwiftReach Networks</div>
-    <div class="partner-tag">RoyalEdge FX</div>
-    <div class="partner-tag">BrightPath Transfers</div>
-    <div class="partner-tag">CoreTrust Financial</div>
+    <div class="partner-tag partners-hidden" style="display:none;">AtlasWire Payments</div>
+    <div class="partner-tag partners-hidden" style="display:none;">CrownVault Bank</div>
+    <div class="partner-tag partners-hidden" style="display:none;">Horizon Digital Finance</div>
+    <div class="partner-tag partners-hidden" style="display:none;">PinnacleX Exchange</div>
+    <div class="partner-tag partners-hidden" style="display:none;">SwiftReach Networks</div>
+    <div class="partner-tag partners-hidden" style="display:none;">RoyalEdge FX</div>
+    <div class="partner-tag partners-hidden" style="display:none;">BrightPath Transfers</div>
+    <div class="partner-tag partners-hidden" style="display:none;">CoreTrust Financial</div>
   </div>
+  <button id="partnersShowMore" onclick="togglePartners()" style="margin-top:24px; background:none; border:1px solid rgba(0,184,107,0.4); color:#067647; font-size:0.82rem; font-weight:600; padding:9px 24px; border-radius:6px; cursor:pointer; transition:background 0.2s, border-color 0.2s;" onmouseover="this.style.background='rgba(0,184,107,0.08)'" onmouseout="this.style.background='none'">Show more partners ↓</button>
 </section>
 
 <!-- HOW IT WORKS -->
@@ -1053,11 +1085,7 @@
       <div class="platform-name">Freelance Platforms</div>
       <div class="platform-desc">Upwork, Toptal, Freelancer &amp; similar</div>
     </div>
-    <div class="platform-card">
-      <div class="platform-icon">📈</div>
-      <div class="platform-name">Investment Platforms</div>
-      <div class="platform-desc">Amplitude.vip &amp; digital asset services</div>
-    </div>
+    
     <div class="platform-card">
       <div class="platform-icon">🌍</div>
       <div class="platform-name">Remote Work Tools</div>
@@ -1209,7 +1237,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2024 Global Exchange UK Ltd. All rights reserved. Registered in England &amp; Wales.</p>
+    <p>© 2026 Global Exchange UK Ltd. All rights reserved. Registered in England &amp; Wales.</p>
     <p class="footer-reg">Global Exchange UK Ltd is authorised and regulated by the Financial Conduct Authority. Our services are subject to UK Money Laundering Regulations 2017. Funds held in safeguarded accounts. Exchange rates are indicative and subject to change. Past performance is not indicative of future results.</p>
   </div>
 </footer>
@@ -1292,6 +1320,15 @@
     });
 
     updateConverter();
+  }
+
+  // Partners show more / show less
+  function togglePartners() {
+    const hidden = document.querySelectorAll('.partners-hidden');
+    const btn = document.getElementById('partnersShowMore');
+    const isHidden = hidden[0].style.display === 'none';
+    hidden.forEach(el => el.style.display = isHidden ? 'flex' : 'none');
+    btn.textContent = isHidden ? 'Show less ↑' : 'Show more partners ↓';
   }
 </script>
 </body>
